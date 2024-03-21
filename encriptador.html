@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #container {
+            text-align: center;
+        }
+        textarea {
+            width: 300px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Encriptador de Texto</h2>
+        <textarea id="inputText" placeholder="Ingrese el texto a encriptar"></textarea>
+        <button onclick="encriptar()">Encriptar</button>
+        <p id="encryptedText"></p>
+    </div>
+
+    <script>
+        function encriptar() {
+            var inputText = document.getElementById("inputText").value;
+            var encryptedText = "";
+
+            for (var i = 0; i < inputText.length; i++) {
+                // Obtener el código ASCII de cada caracter y sumar 1
+                var charCode = inputText.charCodeAt(i) + 1;
+                // Convertir el código ASCII modificado nuevamente a caracter y concatenarlo al texto encriptado
+                encryptedText += String.fromCharCode(charCode);
+            }
+
+            document.getElementById("encryptedText").textContent = "Texto Encriptado: " + encryptedText;
+        }
+    </script>
+</body>
+</html>
